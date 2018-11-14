@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.anthony.weatherparsing.Classification" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="30dp">
+
+        <TextView
+            android:id="@+id/text_area_name"
+            style="@style/WeatherText.Classification"
+            android:text="@{item.area}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/view_divider_location_name"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view_divider_location_name"
+            style="@style/Divider"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/text_area_name"
+            app:layout_constraintRight_toLeftOf="@+id/text_morning_weather"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_morning_weather"
+            style="@style/WeatherText.Classification"
+            android:text="@{item.morning}"
+            app:layout_constraintBaseline_toBaselineOf="@+id/text_area_name"
+            app:layout_constraintHorizontal_weight="3"
+            app:layout_constraintLeft_toRightOf="@+id/view_divider_location_name"
+            app:layout_constraintRight_toLeftOf="@+id/view_divider_weather" />
+
+        <View
+            android:id="@+id/view_divider_weather"
+            style="@style/Divider"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/text_morning_weather"
+            app:layout_constraintRight_toLeftOf="@+id/text_afternoon_weather"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_afternoon_weather"
+            style="@style/WeatherText.Classification"
+            android:text="@{item.afternoon}"
+            app:layout_constraintBaseline_toBaselineOf="@+id/text_area_name"
+            app:layout_constraintHorizontal_weight="3"
+            app:layout_constraintLeft_toRightOf="@+id/view_divider_weather"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

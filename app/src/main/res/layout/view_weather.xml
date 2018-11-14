@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="weather"
+            type="com.anthony.weatherparsing.Weather" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="2dp"
+        android:paddingTop="8dp"
+        android:paddingRight="2dp"
+        android:paddingBottom="8dp">
+
+        <ImageView
+            android:id="@+id/image_weather"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            app:imageUrl="@{weather.icon}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/view_divider_location_name"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_weather"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{weather.description}"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/text_temperatures"
+            app:layout_constraintLeft_toRightOf="@+id/image_weather"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/text_temperatures"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textSize="10sp"
+            app:htmlText="@{weather.detail}"
+            app:layout_constraintLeft_toLeftOf="@+id/text_weather"
+            app:layout_constraintTop_toBottomOf="@+id/text_weather" />
+    </android.support.constraint.ConstraintLayout>
+</layout>
